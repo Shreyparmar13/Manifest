@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: flask-app-deployment
-  namespace: clo835-app
+  namespace: final
   labels:
     app: flask-app
     tier: frontend
@@ -18,6 +18,7 @@ spec:
         app: flask-app
         tier: frontend
     spec:
+      serviceAccountName: clo835
       containers:
       - name: flask-app
         image: ${ECR_REGISTRY}/clo835-app:latest  # Will be replaced by CI/CD

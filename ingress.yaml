@@ -2,7 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: flask-app-ingress
-  namespace: clo835-app
+  namespace: final
   annotations:
     kubernetes.io/ingress.class: "alb"
     alb.ingress.kubernetes.io/scheme: "internet-facing"

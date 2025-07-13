@@ -24,9 +24,13 @@ kubectl apply -f secret.yaml
 echo "💾 Creating Persistent Volume Claim..."
 kubectl apply -f pvc.yaml
 
+# Apply ServiceAccount and RBAC
+echo "🔐 Applying ServiceAccount and RBAC..."
+kubectl apply -f serviceaccount.yaml
+
 # Wait for PVC to be bound
 echo "⏳ Waiting for PVC to be bound..."
-kubectl wait --for=condition=Bound pvc/mysql-pvc -n clo835-app --timeout=60s
+kubectl wait --for=condition=Bound pvc/mysql-pvc -n final --timeout=60s
 
 # Deploy MySQL
 echo "🗄️  Deploying MySQL..."
@@ -35,7 +39,7 @@ kubectl apply -f mysql-service.yaml
 
 # Wait for MySQL to be ready
 echo "⏳ Waiting for MySQL to be ready..."
-kubectl wait --for=condition=available deployment/mysql-deployment -n clo835-app --timeout=300s
+kubectl wait --for=condition=available deployment/mysql-deployment -n final --timeout=300s
 
 # Deploy Flask Application
 echo "🐍 Deploying Flask Application..."
@@ -44,7 +48,7 @@ kubectl apply -f app-service.yaml
 
 # Wait for Flask app to be ready
 echo "⏳ Waiting for Flask app to be ready..."
-kubectl wait --for=condition=available deployment/flask-app-deployment -n clo835-app --timeout=300s
+kubectl wait --for=condition=available deployment/flask-app-deployment -n final --timeout=300s
 
 # Apply Ingress
 echo "🌐 Applying Ingress..."
@@ -57,13 +61,13 @@ kubectl apply -f hpa.yaml
 echo "✅ Deployment completed successfully!"
 echo ""
 echo "📊 Deployment Status:"
-kubectl get all -n clo835-app
+kubectl get all -n final
 echo ""
 echo "🌐 To access the application:"
-echo "   kubectl get ingress -n clo835-app"
+echo "   kubectl get ingress -n final"
 echo ""
 echo "📝 To view logs:"
-echo "   kubectl logs -f deployment/flask-app-deployment -n clo835-app"
+echo "   kubectl logs -f deployment/flask-app-deployment -n final"
 echo ""
 echo "🔧 To scale the application:"
-echo "   kubectl scale deployment flask-app-deployment --replicas=3 -n clo835-app" 
+echo "   kubectl scale deployment flask-app-deployment --replicas=3 -n final" 
