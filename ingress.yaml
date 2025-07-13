@@ -12,8 +12,7 @@ metadata:
     alb.ingress.kubernetes.io/success-codes: "200,302"
 spec:
   rules:
-  - host: clo835-app.example.com  # Replace with your domain
-    http:
+  - http:
       paths:
       - path: /
         pathType: Prefix
