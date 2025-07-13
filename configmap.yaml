@@ -6,7 +6,7 @@ metadata:
 data:
   # Application Configuration
   APP_COLOR: "blue"
-  STUDENT_NAME: "Your Name Here"
+  STUDENT_NAME: "Aftab & Shrey"
   BACKGROUND_IMAGE_URL: "https://picsum.photos/1920/1080"
   
   # Database Configuration
@@ -14,5 +14,5 @@ data:
   DBPORT: "3306"
   
   # S3 Configuration for background image
-  S3_BUCKET: "your-clo835-background-images"
-  S3_IMAGE_KEY: "backgrounds/background.jpg" 
+  S3_BUCKET: "bigbasket7"
+  S3_IMAGE_KEY: "background/img2.jpg" 
