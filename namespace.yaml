@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: clo835-app
+  labels:
+    name: clo835-app
+    project: clo835-final 
