@@ -14,7 +14,6 @@ kubectl apply -f namespace.yaml
 # Apply ConfigMaps
 echo "⚙️  Applying ConfigMaps..."
 kubectl apply -f configmap.yaml
-kubectl apply -f mysql-init-configmap.yaml
 
 # Apply Secrets
 echo "🔐 Applying Secrets..."
