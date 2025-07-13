@@ -4,13 +4,13 @@ metadata:
   name: flask-app-ingress
   namespace: final
   annotations:
-    kubernetes.io/ingress.class: "alb"
     alb.ingress.kubernetes.io/scheme: "internet-facing"
     alb.ingress.kubernetes.io/target-type: "ip"
     alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}]'
     alb.ingress.kubernetes.io/healthcheck-path: "/"
     alb.ingress.kubernetes.io/success-codes: "200,302"
 spec:
+  ingressClassName: alb
   rules:
   - http:
       paths:
@@ -20,4 +20,4 @@ spec:
           service:
             name: flask-app-service
             port:
-              number: 80 
+              number: 80
