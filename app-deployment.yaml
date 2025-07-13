@@ -7,7 +7,7 @@ metadata:
     app: flask-app
     tier: frontend
 spec:
-  replicas: 2  # Start with 2 replicas for high availability
+  replicas: 1  # Single replica as required
   selector:
     matchLabels:
       app: flask-app
