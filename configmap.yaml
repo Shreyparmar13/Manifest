@@ -15,4 +15,4 @@ data:
   
   # S3 Configuration for background image
   S3_BUCKET: "bigbasket7"
-  S3_IMAGE_KEY: "background/img2.jpg" 
+  S3_IMAGE_KEY: "background/img1.jpg" 
